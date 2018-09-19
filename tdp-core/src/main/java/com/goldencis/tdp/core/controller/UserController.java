@@ -1,25 +1,20 @@
 package com.goldencis.tdp.core.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Date;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by limingchao on 2018/9/14.
+ * <p>
+ * 用户信息表-定义用户基本信息 前端控制器
+ * </p>
+ *
+ * @author limingchao
+ * @since 2018-09-19
  */
-@Controller
-@RequestMapping(value = "/user")
+@RestController
+@RequestMapping("/core/user")
 public class UserController {
-
-    @RequestMapping(value = "/index")
-    public String indexPage(Model model) {
-        System.out.println("visit index site!");
-
-        model.addAttribute("tdpTime", new Date());
-        return "index";
-    }
 
 }
