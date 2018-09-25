@@ -66,7 +66,7 @@ public class CodeGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL)
-           .setUrl("jdbc:mysql://localhost:3306/goldencis_vdp?useUnicode=true&useSSL=false&characterEncoding=utf8")
+           .setUrl("jdbc:mysql://localhost:3306/goldencis_tdp?useUnicode=true&useSSL=false&characterEncoding=utf8")
            .setDriverName("com.mysql.jdbc.Driver")
            .setUsername("root")
            .setPassword("goldencis");
@@ -96,7 +96,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + File.separator + modulePrefix + moduleName + "/src/main/resources/mapper/" + pc.getModuleName()
+                return projectPath + File.separator + modulePrefix + moduleName + "/src/main/resources/mapper/"
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });

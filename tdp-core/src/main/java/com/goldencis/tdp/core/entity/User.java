@@ -1,14 +1,18 @@
 package com.goldencis.tdp.core.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Set;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * <p>
@@ -16,7 +20,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author limingchao
- * @since 2018-09-19
+ * @since 2018-09-25
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -40,12 +44,18 @@ public class User extends Model<User> {
     /**
      * 用户名
      */
-    private String userName;
+    private String username;
 
     /**
      * 密码
      */
     private String password;
+
+    /**
+     * 用户权限集合
+     */
+    @TableField(exist = false)
+    private Set<GrantedAuthority> authorities;
 
     /**
      * 所属部门
@@ -56,11 +66,6 @@ public class User extends Model<User> {
      * 姓名
      */
     private String name;
-
-    /**
-     * 性别
-     */
-    private Integer sex;
 
     /**
      * 是否可见
@@ -83,19 +88,9 @@ public class User extends Model<User> {
     private String address;
 
     /**
-     * 管理员状态
+     * 用户状态可用：11为可用，10为不可用(锁定)
      */
     private Integer status;
-
-    /**
-     * 管理员角色类型0管理员、1操作员、2审计员
-     */
-    private Integer roleType;
-
-    /**
-     * 策略只读
-     */
-    private Integer readonly;
 
     private String skin;
 

@@ -6,18 +6,15 @@
     <resultMap id="BaseResultMap" type="com.goldencis.tdp.core.entity.User">
         <id column="id" property="id" />
         <result column="guid" property="guid" />
-        <result column="user_name" property="userName" />
+        <result column="username" property="username" />
         <result column="password" property="password" />
         <result column="department" property="department" />
         <result column="name" property="name" />
-        <result column="sex" property="sex" />
         <result column="visible" property="visible" />
         <result column="email" property="email" />
         <result column="phone" property="phone" />
         <result column="address" property="address" />
         <result column="status" property="status" />
-        <result column="role_type" property="roleType" />
-        <result column="readonly" property="readonly" />
         <result column="skin" property="skin" />
         <result column="error_login_count" property="errorLoginCount" />
         <result column="error_login_last_time" property="errorLoginLastTime" />
@@ -26,7 +23,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, guid, user_name, password, department, name, sex, visible, email, phone, address, status, role_type, readonly, skin, error_login_count, error_login_last_time, create_time
+        id, guid, username, password, department, name, visible, email, phone, address, status, skin, error_login_count, error_login_last_time, create_time
     </sql>
 
 </mapper>
