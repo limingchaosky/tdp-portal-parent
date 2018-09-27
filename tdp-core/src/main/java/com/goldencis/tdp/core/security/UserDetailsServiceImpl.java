@@ -1,9 +1,8 @@
 package com.goldencis.tdp.core.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.goldencis.tdp.core.Constants.Constants;
+import com.goldencis.tdp.core.constants.ConstantsDto;
 import com.goldencis.tdp.core.service.IUserService;
-import org.springframework.security.authentication.AccountStatusException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -41,7 +40,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("用户名或密码不正确！");
         }
 
-        if (user.getStatus() != Constants.ACCOUNT_STATUS_ENABLE) {
+        if (user.getStatus() != ConstantsDto.ACCOUNT_STATUS_ENABLE) {
             throw new LockedException("用户已被锁定！");
         }
 

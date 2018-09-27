@@ -1,9 +1,9 @@
-package com.goldencis.tdp.core.Constants;
+package com.goldencis.tdp.core.constants;
 
 /**
  * Created by limingchao on 2018/9/25.
  */
-public class Constants {
+public class ConstantsDto {
 
     public static final Integer CONST_TRUE = 1;
     public static final Integer CONST_FALSE = 0;
@@ -12,4 +12,6 @@ public class Constants {
     //账户状态
     public static final Integer ACCOUNT_STATUS_ENABLE = 11;
 
+    public static final String SECURITY_FILE_PATH = "classpath:static/dataFiles/security.xml";
+    public static final String SECURITY_NONE = "/security/http/@pattern";
 }
