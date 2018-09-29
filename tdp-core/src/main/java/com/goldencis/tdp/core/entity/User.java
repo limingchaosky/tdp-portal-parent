@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -20,7 +20,7 @@ import org.springframework.security.core.GrantedAuthority;
  * </p>
  *
  * @author limingchao
- * @since 2018-09-25
+ * @since 2018-09-27
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -31,14 +31,9 @@ public class User extends Model<User> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键（自增长）
+     * 主键.唯一标示
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-
-    /**
-     * 唯一标示
-     */
+    @TableId(value = "guid", type = IdType.UUID)
     private String guid;
 
     /**
@@ -109,7 +104,7 @@ public class User extends Model<User> {
 
     @Override
     protected Serializable pkVal() {
-        return this.id;
+        return this.guid;
     }
 
 }

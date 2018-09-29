@@ -45,7 +45,8 @@ public class CodeGenerator {
 //        String moduleName = scanner("模块名");
         String moduleName = "core";
 //        String tableName = scanner("表名");
-        String tableName = "t_user";
+//        String tableName = "t_user";
+        String[] tableName = {"t_usergroup", "t_user_usergroup", "t_role", "t_user_role", "t_usergroup_role", "t_permission", "t_navigation", "t_operation"};
 
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -56,7 +57,7 @@ public class CodeGenerator {
         gc.setOutputDir(projectPath + File.separator + modulePrefix + moduleName + "/src/main/java")
           .setAuthor("limingchao")
           .setActiveRecord(true)
-          .setFileOverride(true)
+          .setFileOverride(false)
           .setIdType(IdType.AUTO)
           .setBaseResultMap(true)
           .setBaseColumnList(true);

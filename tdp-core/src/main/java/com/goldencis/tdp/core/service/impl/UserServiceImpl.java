@@ -6,6 +6,10 @@ import com.goldencis.tdp.core.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,7 +17,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author limingchao
- * @since 2018-09-25
+ * @since 2018-09-27
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
@@ -21,8 +25,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Autowired
     private UserMapper userMapper;
 
+    @Transactional
     @Override
     public User findUserByGuid(String guid) {
         return userMapper.findUserByGuid(guid);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void batchSave(List<User> userList) throws Exception {
+        for (User user : userList) {
+            if ("CCC".equals(user.getUsername())) {
+                throw new RuntimeException();
+            }
+            userMapper.insert(user);
+        }
     }
 }

@@ -4,8 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.goldencis.tdp.core.entity.User">
-        <id column="id" property="id" />
-        <result column="guid" property="guid" />
+        <id column="guid" property="guid" />
         <result column="username" property="username" />
         <result column="password" property="password" />
         <result column="department" property="department" />
@@ -23,7 +22,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, guid, username, password, department, name, visible, email, phone, address, status, skin, error_login_count, error_login_last_time, create_time
+        guid, username, password, department, name, visible, email, phone, address, status, skin, error_login_count, error_login_last_time, create_time
     </sql>
 
     <select id="findUserByGuid" resultMap="BaseResultMap">
